@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>saludo.html</title>
+</head>
+<body>
+    <h1> Saludando desde parimpar.html</h1>
+    <form method="post">
+        {% csrf_token %}
+        Introduzca un numero:
+        <input type="number" name="cajanum" required/>
+        <button>Impar o Impar ?</button>
+    </form>    
+    {% if resultado %}
+        <h2> El número {{numero}} es ........ {{resultado}}  </h2><br/>
+    {% endif %}
+    <a href="/">Volver a index.html</a> </href>
+
+</body>
+</html>

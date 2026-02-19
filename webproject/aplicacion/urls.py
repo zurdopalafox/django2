@@ -6,8 +6,15 @@ from aplicacion import views
 #http://127.0.0.1:8000/aplicacion
 #http://127.0.0.1:8000/aplicacion/prueba
 #http://127.0.0.1:8000/aplicacion/peliculas
+#http://127.0.0.1:8000/aplicacion/futbol
+#http://127.0.0.1:8000/aplicacion/nombres
+
 urlpatterns = [
      path('', views.index, name="index"),
      path('prueba/', views.prueba, name="prueba"),
      path("peliculas/", views.peliculas, name="peliculas"),
+     path("futbol/", views.futbol, name="futbol"),
+     path("nombres/", views.nombres, name="nombres"),
+     path("mascotas/", views.mascotas, name="mascotas"),
+     path("colores/", views.colores, name="colores"),
 ]
