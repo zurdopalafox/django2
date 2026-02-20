@@ -63,4 +63,54 @@ def collatz(request):
         return render(request, "paginas/collatz.html", informacion)        
     else:    
         return render(request, "paginas/collatz.html")
-        
+    
+def multiplicar(request):
+    if ('cajanumero' in request.POST):
+        listamultiplicaciones = []
+        numero = int(request.POST["cajanumero"])
+        for i in range(1,11):
+            multiplicacion = numero * i
+            operacion = str(numero) + " * " + str(i)
+            listamultiplicaciones.append(
+                {
+                    "operacion": operacion,
+                    "resultado": multiplicacion
+                }
+            )
+    # Debemos enviarlo siempre como diccionario            
+        informacion = {
+            "tablamultiplicar" : listamultiplicaciones
+            }
+        return render(request, "paginas/multiplicar.html", informacion)        
+    else:    
+        return render(request, "paginas/multiplicar.html")
+
+def deportes(request):
+    listaDeportes = ["Petanca", "Canicas", "Trompo", "Balero", "Bolillo", "Rana"]
+    if ('selectdeporte' in request.POST):
+        seleccion = request.POST.get("selectdeporte")
+        informacion = {
+            "listadeportes" : listaDeportes,
+            "seleccion"     : seleccion
+        }
+        return render(request, "paginas/deportes.html", informacion)       
+    else:
+        informacion = {
+            "listadeportes" : listaDeportes
+        }
+        return render(request, "paginas/deportes.html", informacion)
+
+def colores(request):
+    listaColores = [{"color": "rojo", "valor": "red"}, {"color": "verde", "valor": "green"}, {"color": "azul", "valor": "blue"}]
+    if ('selectcolor' in request.POST):
+        seleccion = request.POST.get("selectcolor")
+        informacion = {
+            "listacolores"  : listaColores,
+            "seleccion"     : seleccion
+        }
+        return render(request, "paginas/colores.html", informacion)       
+    else:
+        informacion = {
+            "listacolores" : listaColores
+        }
+        return render(request, "paginas/colores.html", informacion)

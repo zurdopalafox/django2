@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TABLA MUltiplicar</title>
+</head>
+<body>
+    {% include 'paginas/menu.html' %}
+    <h1>Tabla de Multiplicar</h1>
+    <form method="post">
+        {% csrf_token %}
+     Introduzca el numero a multiplicar:
+    <input type="number" name="cajanumero" required/>
+    <button> Tabla de Multiplicar</button>
+    <li>
+    <a href="/">Volver a index.html</a> </href>
+    </li>
+    </form>
+        <table style="width: 100%; border-collapse: collapse; box-shadow: 0px 4px 8px rgba(0,0,0,0.1);">
+        
+        <thead style="background-color: #042f5b; color: rgb(242, 243, 246);">
+            <tr>
+                <th style="padding: 12px; text-align: left;">Operación</th>
+                <th style="padding: 12px; text-align: left;">Resultado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fila in tablamultiplicar %}
+            <tr style="border-bottom: 1px solid #f8f8fb;background-color: #729cc7; color: rgb(242, 243, 246);">
+                <td style="padding: 10px;"> {{ fila.operacion }}</td>
+                <td style="padding: 10px;"> {{ fila.resultado }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

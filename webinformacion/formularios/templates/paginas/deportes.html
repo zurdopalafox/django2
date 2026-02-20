@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEPORTES</title>
+</head>
+<body>
+    {% include 'paginas/menu.html' %}    
+    <h1> Deportes </h1>
+    <form method="post">
+        {% csrf_token %}
+        Seleccione un deporte:
+        <select name="selectdeporte">
+        {% for deporte in listadeportes %}
+        <option value="{{ deporte }}">
+            {{ deporte }}
+        </option>"
+        {% endfor %}
+        </select>
+        <button> Mostrar selección</button>
+        {% if seleccion %}
+    <h2>El deporte que ha seleccionado es : {{ seleccion }}</h2>
+        {% endif %}
+    </form>
+</body>
+</html>
